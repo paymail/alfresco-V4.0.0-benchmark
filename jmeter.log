@@ -1,0 +1,119 @@
+2013/11/13 13:51:39 INFO  - jmeter.util.JMeterUtils: Setting Locale to en_GB 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Loading user properties from: C:\Users\hembm\Downloads\apache-jmeter-2.10\apache-jmeter-2.10\bin\user.properties 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Loading system properties from: C:\Users\hembm\Downloads\apache-jmeter-2.10\apache-jmeter-2.10\bin\system.properties 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: jmeter.save.saveservice.output_format=xml 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: jmeter.save.saveservice.assertion_results=all 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: jmeter.save.saveservice.bytes=true 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: file_format.testlog=2.1 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: jmeter.save.saveservice.response_data.on_error=true 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Setting JMeter property: jmeter.save.saveservice.thread_counts=true 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Copyright (c) 1998-2013 The Apache Software Foundation 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Version 2.10 r1533061 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: java.version=1.7.0_45 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: os.name=Windows 7 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: os.arch=amd64 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: os.version=6.1 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: file.encoding=Cp1252 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Default Locale=English (United Kingdom) 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: JMeter  Locale=English (United Kingdom) 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: JMeterHome=C:\Users\hembm\Downloads\apache-jmeter-2.10\apache-jmeter-2.10 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: user.dir  =C:\Users\hembm\code\alfresco-benchmark\scripts\SHARE\share-0001\V4.0.0 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: PWD       =C:\Users\hembm\code\alfresco-benchmark\scripts\SHARE\share-0001\V4.0.0 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: IP: 10.249.3.85 Name: L0134 FullName: L0134.group.local 
+2013/11/13 13:51:39 INFO  - jmeter.services.FileServer: Default base='C:\Users\hembm\code\alfresco-benchmark\scripts\SHARE\share-0001\V4.0.0' 
+2013/11/13 13:51:39 INFO  - jmeter.services.FileServer: Set new base='C:\Users\hembm\code\alfresco-benchmark\scripts\SHARE\share-0001\V4.0.0\scripts' 
+2013/11/13 13:51:39 INFO  - jmeter.JMeter: Loading file: scripts\full.jmx 
+2013/11/13 13:51:39 INFO  - jmeter.save.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.1 
+2013/11/13 13:51:39 INFO  - jmeter.save.SaveService: Using SaveService properties file encoding UTF-8 
+2013/11/13 13:51:39 INFO  - jmeter.save.SaveService: Using SaveService properties version 2.5 
+2013/11/13 13:51:39 INFO  - jmeter.save.SaveService: Using SaveService properties file version 1519088 
+2013/11/13 13:51:39 INFO  - jmeter.save.SaveService: All converter versions present and correct 
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.control.CookieManager: Settings: Delete null: true Check: true Allow variable: true Save: false Prefix: COOKIE_ 
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Cannot find .className property for htmlParser, using default 
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/html is  
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xhtml+xml is  
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for application/xml is  
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/xml is  
+2013/11/13 13:51:39 INFO  - jmeter.protocol.http.sampler.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Listeners will be started after enabling running version 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: To revert to the earlier behaviour, define jmeterengine.startlistenerslater=false 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Running the test! 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleEvent: List of sample_variables: [] 
+2013/11/13 13:51:40 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must contain the string: '.functions.' 
+2013/11/13 13:51:40 INFO  - jmeter.engine.util.CompoundVariable: Note: Function class names must not contain the string: '.gui.' 
+2013/11/13 13:51:40 INFO  - jmeter.JMeter: Running test (1384350700500) 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 1 : SetUp 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Starting 1 threads for group SetUp. 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2013/11/13 13:51:40 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 1 threads 1 ramp-up 0 perThread 0.0 delayedStart=false 
+2013/11/13 13:51:40 INFO  - jmeter.threads.JMeterThread: jmeterthread.startearlier=true (see jmeter.properties) 
+2013/11/13 13:51:40 INFO  - jmeter.threads.JMeterThread: Running PostProcessors in forward order 
+2013/11/13 13:51:40 INFO  - jmeter.threads.ThreadGroup: Started thread group number 1 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Waiting for thread group: SetUp to finish before starting next group 
+2013/11/13 13:51:40 INFO  - jmeter.threads.JMeterThread: Thread started: SetUp 1-1 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are START times 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleResult: sampleresult.useNanoTime=true 
+2013/11/13 13:51:40 INFO  - jmeter.samplers.SampleResult: sampleresult.nanoThreadSleep=5000 
+2013/11/13 13:51:40 INFO  - jmeter.threads.JMeterThread: Thread finished: SetUp 1-1 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Starting ThreadGroup: 2 : Test 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Starting 10 threads for group Test. 
+2013/11/13 13:51:40 INFO  - jmeter.engine.StandardJMeterEngine: Thread will continue on error 
+2013/11/13 13:51:40 INFO  - jmeter.threads.ThreadGroup: Starting thread group number 2 threads 10 ramp-up 60 perThread 6000.0 delayedStart=false 
+2013/11/13 13:51:41 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-1 
+2013/11/13 13:51:41 INFO  - jmeter.threads.ThreadGroup: Started thread group number 2 
+2013/11/13 13:51:41 INFO  - jmeter.engine.StandardJMeterEngine: All thread groups have been started 
+2013/11/13 13:51:47 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-2 
+2013/11/13 13:51:51 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Maximum connection retries = 10 
+2013/11/13 13:51:52 INFO  - jmeter.protocol.http.parser.HTMLParser: Created org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser 
+2013/11/13 13:51:53 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-3 
+2013/11/13 13:51:59 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-4 
+2013/11/13 13:52:05 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-5 
+2013/11/13 13:52:11 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-6 
+2013/11/13 13:52:17 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-7 
+2013/11/13 13:52:23 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-8 
+2013/11/13 13:52:29 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-9 
+2013/11/13 13:52:35 INFO  - jmeter.threads.JMeterThread: Thread started: Test 2-10 
+2013/11/13 13:53:27 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00001site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:53:27 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00001site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:53:27 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 13:53:59 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00005site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:53:59 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00005site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:53:59 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 13:54:00 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00006site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:54:00 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00006site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:54:00 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 13:54:07 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00007site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:54:07 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00007site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:54:07 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 13:57:26 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00002site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:57:26 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00002site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:57:26 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 13:58:22 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00010site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:58:22 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00010site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 13:58:22 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 14:02:22 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00004site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:22 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00004site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:22 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 14:02:42 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00002site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:42 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00002site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:42 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 14:02:48 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00009site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:48 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00009site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:02:48 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 14:03:15 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: readResponse: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00007site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:03:15 ERROR - jmeter.protocol.http.sampler.HTTPJavaImpl: Cause: java.io.IOException: Server returned HTTP response code: 500 for URL: http://atlflw02.group.local:8080/share/service/components/dashlets/activities/list?site=jmuser00007site&mode=site&dateFilter=7&userFilter=all&activityFilter= 
+2013/11/13 14:03:15 INFO  - jmeter.protocol.http.sampler.HTTPJavaImpl: Error Response Code: 500 
+2013/11/13 14:11:44 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-5 
+2013/11/13 14:11:45 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-6 
+2013/11/13 14:11:46 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-7 
+2013/11/13 14:11:53 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-2 
+2013/11/13 14:11:54 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-1 
+2013/11/13 14:11:59 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-8 
+2013/11/13 14:12:00 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-9 
+2013/11/13 14:12:10 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-3 
+2013/11/13 14:12:13 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-4 
+2013/11/13 14:12:15 INFO  - jmeter.threads.JMeterThread: Thread finished: Test 2-10 
+2013/11/13 14:12:15 INFO  - jmeter.engine.StandardJMeterEngine: Notifying test listeners of end of test 

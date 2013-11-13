@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="41" lt="0" ts="1384349804316" s="true" lb="read_test_properties" rc="200" rm="OK" tn="SetUp 1-1" dt="text" by="0"/>
+<httpSample t="404" lt="114" ts="1384349805438" s="true" lb="dologin" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="48731">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="114" lt="114" ts="1384349805438" s="true" lb="http://atlflw02.group.local:8080/share/page/dologin" rc="302" rm="Moved Temporarily" tn="" dt="" by="444"/>
+  <httpSample t="34" lt="34" ts="1384349805566" s="true" lb="http://atlflw02.group.local:8080/share/page/" rc="302" rm="Moved Temporarily" tn="DeleteUsersIfExist 2-1" dt="text" by="282"/>
+  <httpSample t="241" lt="241" ts="1384349805601" s="true" lb="http://atlflw02.group.local:8080/share/page/user/admin/dashboard" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="48005"/>
+</httpSample>
+<httpSample t="50" lt="49" ts="1384349805879" s="true" lb="admin-console_users" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="58807">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="10" lt="10" ts="1384349805934" s="true" lb="authentication" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="236">
+  <assertionResult>
+    <name>checking_authentication</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="7" lt="0" ts="1384349806094" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="45" lt="45" ts="1384349806102" s="false" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="914">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /jmuser00001/</failureMessage>
+  </assertionResult>
+  <responseData class="java.lang.String">{&#xd;
+&quot;people&quot; : [&#xd;
+{&#xd;
+	&quot;url&quot;: &quot;\/alfresco\/s\/api\/person\/jmuser00001&quot;,&#xd;
+	&quot;userName&quot;: &quot;jmuser00001&quot;,&#xd;
+	&quot;enabled&quot;: true,&#xd;
+	&quot;firstName&quot;: &quot;jmuser00001&quot;,&#xd;
+	&quot;lastName&quot;: &quot;jmuser00001&quot;,&#xd;
+	&quot;jobtitle&quot;: null,&#xd;
+	&quot;organization&quot;: null,&#xd;
+	&quot;location&quot;: null,&#xd;
+	&quot;telephone&quot;: null,&#xd;
+	&quot;mobile&quot;: null,&#xd;
+	&quot;email&quot;: &quot;mark.hembrow@sovini.co.uk&quot;,&#xd;
+	&quot;companyaddress1&quot;: null,&#xd;
+	&quot;companyaddress2&quot;: null,&#xd;
+	&quot;companyaddress3&quot;: null,&#xd;
+	&quot;companypostcode&quot;: null,&#xd;
+	&quot;companytelephone&quot;: null,&#xd;
+	&quot;companyfax&quot;: null,&#xd;
+	&quot;companyemail&quot;: null,&#xd;
+	&quot;skype&quot;: null,&#xd;
+	&quot;instantmsg&quot;: null,&#xd;
+	&quot;userStatus&quot;: null,&#xd;
+	&quot;userStatusTime&quot;: null,&#xd;
+	&quot;googleusername&quot;: null,&#xd;
+	&quot;quota&quot;: -1,&#xd;
+	&quot;sizeCurrent&quot;: 0,&#xd;
+	&quot;emailFeedDisabled&quot;: false,&#xd;
+	&quot;persondescription&quot;: null&#xd;
+}&#xd;
+		&#xd;
+]&#xd;
+}</responseData>
+  <cookies class="java.lang.String">JSESSIONID=215EEDAFFA27E6637B5F5D04246BD174; alfLogin=1384349799; alfUsername2=YWRtaW4=</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+</httpSample>
+<httpSample t="294" lt="294" ts="1384349806153" s="true" lb="delete_user" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="193">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349806450" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="22" lt="22" ts="1384349806457" s="false" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="914">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /jmuser00002/</failureMessage>
+  </assertionResult>
+  <responseData class="java.lang.String">{&#xd;
+&quot;people&quot; : [&#xd;
+{&#xd;
+	&quot;url&quot;: &quot;\/alfresco\/s\/api\/person\/jmuser00002&quot;,&#xd;
+	&quot;userName&quot;: &quot;jmuser00002&quot;,&#xd;
+	&quot;enabled&quot;: true,&#xd;
+	&quot;firstName&quot;: &quot;jmuser00002&quot;,&#xd;
+	&quot;lastName&quot;: &quot;jmuser00002&quot;,&#xd;
+	&quot;jobtitle&quot;: null,&#xd;
+	&quot;organization&quot;: null,&#xd;
+	&quot;location&quot;: null,&#xd;
+	&quot;telephone&quot;: null,&#xd;
+	&quot;mobile&quot;: null,&#xd;
+	&quot;email&quot;: &quot;mark.hembrow@sovini.co.uk&quot;,&#xd;
+	&quot;companyaddress1&quot;: null,&#xd;
+	&quot;companyaddress2&quot;: null,&#xd;
+	&quot;companyaddress3&quot;: null,&#xd;
+	&quot;companypostcode&quot;: null,&#xd;
+	&quot;companytelephone&quot;: null,&#xd;
+	&quot;companyfax&quot;: null,&#xd;
+	&quot;companyemail&quot;: null,&#xd;
+	&quot;skype&quot;: null,&#xd;
+	&quot;instantmsg&quot;: null,&#xd;
+	&quot;userStatus&quot;: null,&#xd;
+	&quot;userStatusTime&quot;: null,&#xd;
+	&quot;googleusername&quot;: null,&#xd;
+	&quot;quota&quot;: -1,&#xd;
+	&quot;sizeCurrent&quot;: 0,&#xd;
+	&quot;emailFeedDisabled&quot;: false,&#xd;
+	&quot;persondescription&quot;: null&#xd;
+}&#xd;
+		&#xd;
+]&#xd;
+}</responseData>
+  <cookies class="java.lang.String">JSESSIONID=215EEDAFFA27E6637B5F5D04246BD174; alfLogin=1384349799; alfUsername2=YWRtaW4=</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+</httpSample>
+<httpSample t="129" lt="129" ts="1384349806488" s="true" lb="delete_user" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="193">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="7" lt="0" ts="1384349806620" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="19" lt="19" ts="1384349806629" s="false" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="914">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /jmuser00003/</failureMessage>
+  </assertionResult>
+  <responseData class="java.lang.String">{&#xd;
+&quot;people&quot; : [&#xd;
+{&#xd;
+	&quot;url&quot;: &quot;\/alfresco\/s\/api\/person\/jmuser00003&quot;,&#xd;
+	&quot;userName&quot;: &quot;jmuser00003&quot;,&#xd;
+	&quot;enabled&quot;: true,&#xd;
+	&quot;firstName&quot;: &quot;jmuser00003&quot;,&#xd;
+	&quot;lastName&quot;: &quot;jmuser00003&quot;,&#xd;
+	&quot;jobtitle&quot;: null,&#xd;
+	&quot;organization&quot;: null,&#xd;
+	&quot;location&quot;: null,&#xd;
+	&quot;telephone&quot;: null,&#xd;
+	&quot;mobile&quot;: null,&#xd;
+	&quot;email&quot;: &quot;mark.hembrow@sovini.co.uk&quot;,&#xd;
+	&quot;companyaddress1&quot;: null,&#xd;
+	&quot;companyaddress2&quot;: null,&#xd;
+	&quot;companyaddress3&quot;: null,&#xd;
+	&quot;companypostcode&quot;: null,&#xd;
+	&quot;companytelephone&quot;: null,&#xd;
+	&quot;companyfax&quot;: null,&#xd;
+	&quot;companyemail&quot;: null,&#xd;
+	&quot;skype&quot;: null,&#xd;
+	&quot;instantmsg&quot;: null,&#xd;
+	&quot;userStatus&quot;: null,&#xd;
+	&quot;userStatusTime&quot;: null,&#xd;
+	&quot;googleusername&quot;: null,&#xd;
+	&quot;quota&quot;: -1,&#xd;
+	&quot;sizeCurrent&quot;: 0,&#xd;
+	&quot;emailFeedDisabled&quot;: false,&#xd;
+	&quot;persondescription&quot;: null&#xd;
+}&#xd;
+		&#xd;
+]&#xd;
+}</responseData>
+  <cookies class="java.lang.String">JSESSIONID=215EEDAFFA27E6637B5F5D04246BD174; alfLogin=1384349799; alfUsername2=YWRtaW4=</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+</httpSample>
+<httpSample t="128" lt="128" ts="1384349806658" s="true" lb="delete_user" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="193">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349806789" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="18" lt="18" ts="1384349806796" s="false" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="914">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /jmuser00004/</failureMessage>
+  </assertionResult>
+  <responseData class="java.lang.String">{&#xd;
+&quot;people&quot; : [&#xd;
+{&#xd;
+	&quot;url&quot;: &quot;\/alfresco\/s\/api\/person\/jmuser00004&quot;,&#xd;
+	&quot;userName&quot;: &quot;jmuser00004&quot;,&#xd;
+	&quot;enabled&quot;: true,&#xd;
+	&quot;firstName&quot;: &quot;jmuser00004&quot;,&#xd;
+	&quot;lastName&quot;: &quot;jmuser00004&quot;,&#xd;
+	&quot;jobtitle&quot;: null,&#xd;
+	&quot;organization&quot;: null,&#xd;
+	&quot;location&quot;: null,&#xd;
+	&quot;telephone&quot;: null,&#xd;
+	&quot;mobile&quot;: null,&#xd;
+	&quot;email&quot;: &quot;mark.hembrow@sovini.co.uk&quot;,&#xd;
+	&quot;companyaddress1&quot;: null,&#xd;
+	&quot;companyaddress2&quot;: null,&#xd;
+	&quot;companyaddress3&quot;: null,&#xd;
+	&quot;companypostcode&quot;: null,&#xd;
+	&quot;companytelephone&quot;: null,&#xd;
+	&quot;companyfax&quot;: null,&#xd;
+	&quot;companyemail&quot;: null,&#xd;
+	&quot;skype&quot;: null,&#xd;
+	&quot;instantmsg&quot;: null,&#xd;
+	&quot;userStatus&quot;: null,&#xd;
+	&quot;userStatusTime&quot;: null,&#xd;
+	&quot;googleusername&quot;: null,&#xd;
+	&quot;quota&quot;: -1,&#xd;
+	&quot;sizeCurrent&quot;: 0,&#xd;
+	&quot;emailFeedDisabled&quot;: false,&#xd;
+	&quot;persondescription&quot;: null&#xd;
+}&#xd;
+		&#xd;
+]&#xd;
+}</responseData>
+  <cookies class="java.lang.String">JSESSIONID=215EEDAFFA27E6637B5F5D04246BD174; alfLogin=1384349799; alfUsername2=YWRtaW4=</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+</httpSample>
+<httpSample t="71" lt="71" ts="1384349806819" s="true" lb="delete_user" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="193">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="7" lt="0" ts="1384349806892" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="18" lt="18" ts="1384349806901" s="false" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="914">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: text expected not to contain /jmuser00005/</failureMessage>
+  </assertionResult>
+  <responseData class="java.lang.String">{&#xd;
+&quot;people&quot; : [&#xd;
+{&#xd;
+	&quot;url&quot;: &quot;\/alfresco\/s\/api\/person\/jmuser00005&quot;,&#xd;
+	&quot;userName&quot;: &quot;jmuser00005&quot;,&#xd;
+	&quot;enabled&quot;: true,&#xd;
+	&quot;firstName&quot;: &quot;jmuser00005&quot;,&#xd;
+	&quot;lastName&quot;: &quot;jmuser00005&quot;,&#xd;
+	&quot;jobtitle&quot;: null,&#xd;
+	&quot;organization&quot;: null,&#xd;
+	&quot;location&quot;: null,&#xd;
+	&quot;telephone&quot;: null,&#xd;
+	&quot;mobile&quot;: null,&#xd;
+	&quot;email&quot;: &quot;mark.hembrow@sovini.co.uk&quot;,&#xd;
+	&quot;companyaddress1&quot;: null,&#xd;
+	&quot;companyaddress2&quot;: null,&#xd;
+	&quot;companyaddress3&quot;: null,&#xd;
+	&quot;companypostcode&quot;: null,&#xd;
+	&quot;companytelephone&quot;: null,&#xd;
+	&quot;companyfax&quot;: null,&#xd;
+	&quot;companyemail&quot;: null,&#xd;
+	&quot;skype&quot;: null,&#xd;
+	&quot;instantmsg&quot;: null,&#xd;
+	&quot;userStatus&quot;: null,&#xd;
+	&quot;userStatusTime&quot;: null,&#xd;
+	&quot;googleusername&quot;: null,&#xd;
+	&quot;quota&quot;: -1,&#xd;
+	&quot;sizeCurrent&quot;: 0,&#xd;
+	&quot;emailFeedDisabled&quot;: false,&#xd;
+	&quot;persondescription&quot;: null&#xd;
+}&#xd;
+		&#xd;
+]&#xd;
+}</responseData>
+  <cookies class="java.lang.String">JSESSIONID=215EEDAFFA27E6637B5F5D04246BD174; alfLogin=1384349799; alfUsername2=YWRtaW4=</cookies>
+  <method class="java.lang.String">GET</method>
+  <queryString class="java.lang.String"></queryString>
+</httpSample>
+<httpSample t="147" lt="147" ts="1384349806928" s="true" lb="delete_user" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="193">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349807078" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="14" lt="14" ts="1384349807085" s="true" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="213">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349807105" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="16" lt="16" ts="1384349807111" s="true" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="213">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349807135" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="21" lt="21" ts="1384349807141" s="true" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="213">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="2" lt="0" ts="1384349807166" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="13" lt="13" ts="1384349807169" s="true" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="213">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="2" lt="0" ts="1384349807185" s="true" lb="variable-service" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="0"/>
+<httpSample t="12" lt="12" ts="1384349807188" s="true" lb="check-user-not-exist" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="213">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_user_exist</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="25" lt="11" ts="1384349807204" s="true" lb="dologout" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="10310">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="11" lt="11" ts="1384349807204" s="true" lb="http://atlflw02.group.local:8080/share/page/dologout" rc="302" rm="Moved Temporarily" tn="" dt="" by="248"/>
+  <httpSample t="1" lt="1" ts="1384349807216" s="true" lb="http://atlflw02.group.local:8080/share" rc="302" rm="Moved Temporarily" tn="DeleteUsersIfExist 2-1" dt="" by="177"/>
+  <httpSample t="12" lt="12" ts="1384349807217" s="true" lb="http://atlflw02.group.local:8080/share/" rc="200" rm="OK" tn="DeleteUsersIfExist 2-1" dt="text" by="9885"/>
+</httpSample>
+<httpSample t="99" lt="20" ts="1384349808267" s="true" lb="dologin" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="48731">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="20" lt="20" ts="1384349808267" s="true" lb="http://atlflw02.group.local:8080/share/page/dologin" rc="302" rm="Moved Temporarily" tn="" dt="" by="444"/>
+  <httpSample t="23" lt="23" ts="1384349808290" s="true" lb="http://atlflw02.group.local:8080/share/page/" rc="302" rm="Moved Temporarily" tn="CreateTestUsers 3-1" dt="text" by="282"/>
+  <httpSample t="52" lt="52" ts="1384349808314" s="true" lb="http://atlflw02.group.local:8080/share/page/user/admin/dashboard" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="48005"/>
+</httpSample>
+<httpSample t="45" lt="44" ts="1384349808369" s="true" lb="admin-console_users" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="58807">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="6" lt="6" ts="1384349808416" s="true" lb="authentication" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="236">
+  <assertionResult>
+    <name>checking_authentication</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="4" lt="0" ts="1384349808425" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="243" lt="243" ts="1384349808430" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="6" lt="0" ts="1384349808680" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="156" lt="156" ts="1384349808687" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="6" lt="0" ts="1384349808845" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="173" lt="173" ts="1384349808853" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="6" lt="0" ts="1384349809028" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="177" lt="177" ts="1384349809035" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="6" lt="0" ts="1384349809214" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="190" lt="190" ts="1384349809222" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="4" lt="0" ts="1384349809413" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="269" lt="269" ts="1384349809417" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="3" lt="0" ts="1384349809687" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="229" lt="229" ts="1384349809690" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349809922" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="222" lt="222" ts="1384349809929" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="5" lt="0" ts="1384349810153" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="164" lt="164" ts="1384349810160" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<sample t="3" lt="0" ts="1384349810326" s="true" lb="variable-service" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="0"/>
+<httpSample t="146" lt="146" ts="1384349810330" s="true" lb="create_user" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="893">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="20" lt="10" ts="1384349810479" s="true" lb="dologout" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="10310">
+  <assertionResult>
+    <name>assert_code</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <assertionResult>
+    <name>assert_errors</name>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+  <httpSample t="10" lt="10" ts="1384349810479" s="true" lb="http://atlflw02.group.local:8080/share/page/dologout" rc="302" rm="Moved Temporarily" tn="" dt="" by="248"/>
+  <httpSample t="2" lt="2" ts="1384349810491" s="true" lb="http://atlflw02.group.local:8080/share" rc="302" rm="Moved Temporarily" tn="CreateTestUsers 3-1" dt="" by="177"/>
+  <httpSample t="6" lt="6" ts="1384349810493" s="true" lb="http://atlflw02.group.local:8080/share/" rc="200" rm="OK" tn="CreateTestUsers 3-1" dt="text" by="9885"/>
+</httpSample>
+
+</testResults>

@@ -1,0 +1,68 @@
+===============================================================================================================================
+   TEST RUN : 
+   10 user(s)
+   1 loop(s)
+===============================================================================================================================
+Property "loops" has not been set
+Executing 'C:\Program Files\Java\jdk1.7.0_45\jre\bin\java.exe' with arguments:
+'-Xms128M'
+'-Xmx4G'
+'-Dsun.rmi.dgc.client.gcInterval=600000'
+'-Dsun.rmi.dgc.server.gcInterval=600000'
+'-XX:PermSize=128M'
+'-XX:MaxPermSize=512M'
+'-XX:+UseConcMarkSweepGC'
+'-XX:+CMSClassUnloadingEnabled'
+'-jar'
+'C:\Users\hembm\Downloads\apache-jmeter-2.10\apache-jmeter-2.10\bin\ApacheJMeter.jar'
+'-n'
+'-t'
+'scripts/read-only.jmx'
+'-l'
+'resultlogs/jtl-logs/read-only-build4.0.0.792-users-10.jtl'
+'-Jjmeter.save.saveservice.output_format=xml'
+'-Jjmeter.save.saveservice.assertion_results=all'
+'-Jjmeter.save.saveservice.bytes=true'
+'-Jfile_format.testlog=2.1'
+'-Jjmeter.save.saveservice.response_data.on_error=true'
+'-Jjmeter.usersCount=10'
+'-Jjmeter.loopCount=${loops}'
+
+The ' characters around the executable and arguments are
+not part of the command.
+Created the tree successfully using scripts/read-only.jmx
+Starting the test @ Wed Nov 13 13:37:45 GMT 2013 (1384349865948)
+Waiting for possible shutdown message on port 4445
+
+TEST PROPERTIES:
+-- listing properties --
+admin_login=admin
+read_only_loops_count=1
+write_percentage=20
+test_name=jmuser
+user_start_number=1
+ramp_up_time=60
+name_format=00000
+think_time=10000
+port=8080
+users_count=10
+test_mail=admin@mail.qalab.alfresco.org
+test_mail_domain=qalab.alfresco.org
+protocol=http
+host=atlflw02.group.local
+test_full_time=1200
+thread_pool_size=12
+full_loops_count=1000
+admin_pwd=sovini
+
+
+----------------------------------------------------
+[TEST PROGRESS] loops completed (of 1):
+----------------------------------------------------
+0
+----------------------------------------------------
+Tidying up ...    @ Wed Nov 13 13:51:33 GMT 2013 (1384350693439)
+... end of run
+-------------------------------------------------------------
+[jmeterTaskTimer: 13:49.466 sec]
+-------------------------------------------------------------

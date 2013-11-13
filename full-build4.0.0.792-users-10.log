@@ -1,0 +1,282 @@
+===============================================================================================================================
+   TEST RUN : 
+   10 user(s)
+   1000 loop(s)
+===============================================================================================================================
+Executing 'C:\Program Files\Java\jdk1.7.0_45\jre\bin\java.exe' with arguments:
+'-Xms128M'
+'-Xmx4G'
+'-Dsun.rmi.dgc.client.gcInterval=600000'
+'-Dsun.rmi.dgc.server.gcInterval=600000'
+'-XX:PermSize=128M'
+'-XX:MaxPermSize=512M'
+'-XX:+UseConcMarkSweepGC'
+'-XX:+CMSClassUnloadingEnabled'
+'-jar'
+'C:\Users\hembm\Downloads\apache-jmeter-2.10\apache-jmeter-2.10\bin\ApacheJMeter.jar'
+'-n'
+'-t'
+'scripts/full.jmx'
+'-l'
+'resultlogs/jtl-logs/full-build4.0.0.792-users-10.jtl'
+'-Jjmeter.save.saveservice.output_format=xml'
+'-Jjmeter.save.saveservice.assertion_results=all'
+'-Jjmeter.save.saveservice.bytes=true'
+'-Jfile_format.testlog=2.1'
+'-Jjmeter.save.saveservice.response_data.on_error=true'
+'-Jjmeter.save.saveservice.thread_counts=true'
+
+The ' characters around the executable and arguments are
+not part of the command.
+Created the tree successfully using scripts/full.jmx
+Starting the test @ Wed Nov 13 13:51:40 GMT 2013 (1384350700280)
+Waiting for possible shutdown message on port 4445
+
+TEST PROPERTIES:
+-- listing properties --
+admin_login=admin
+read_only_loops_count=1
+write_percentage=20
+test_name=jmuser
+user_start_number=1
+ramp_up_time=60
+name_format=00000
+think_time=10000
+port=8080
+users_count=10
+test_mail=admin@mail.qalab.alfresco.org
+test_mail_domain=qalab.alfresco.org
+protocol=http
+host=atlflw02.group.local
+test_full_time=1200
+thread_pool_size=12
+full_loops_count=1000
+admin_pwd=sovini
+
+
+-------------------------------------------------
+[11-13 13:51:47:643]
+User: jmuser00002
+Action: write
+Loop: 0
+File: testdata\test-file-0-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/947fe37e-82a5-48f1-b54a-707e36746b7d
+[11-13 13:55:40:511]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:51:53:646]
+User: jmuser00003
+Action: write
+Loop: 0
+File: testdata\test-file-2-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/7e1bc419-69a6-42a5-9c7b-a7b028d17696
+[11-13 13:55:45:577]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:51:59:645]
+User: jmuser00004
+Action: write
+Loop: 0
+File: testdata\test-file-6-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/81c242d7-37dc-430e-8972-73046530dc2a
+[11-13 13:55:51:667]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:51:41:843]
+User: jmuser00001
+Action: write
+Loop: 0
+File: testdata\test-file-9-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/90908543-c05f-48e8-bb5d-a59d6d438f91
+[11-13 13:56:09:047]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:23:674]
+User: jmuser00008
+Action: write
+Loop: 0
+File: testdata\test-file-3-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/1dd97817-198e-49c3-9fd0-41637b908ffb
+[11-13 13:56:15:392]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:29:869]
+User: jmuser00009
+Action: write
+Loop: 0
+File: testdata\test-file-9-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/85ee4916-6b38-4dc8-b450-ae4636cab8d4
+[11-13 13:56:21:725]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:35:999]
+User: jmuser00010
+Action: write
+Loop: 0
+File: testdata\test-file-8-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/48dc0b97-034a-4ad9-b258-52d9d4a1f871
+[11-13 13:56:27:806]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:05:641]
+User: jmuser00005
+Action: write
+Loop: 0
+File: testdata\test-file-1-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/8695a297-1b0e-4a22-904a-5c4589f0e16d
+[11-13 13:56:40:566]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:11:650]
+User: jmuser00006
+Action: write
+Loop: 0
+File: testdata\test-file-9-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/f0973c99-2593-423c-bc52-9410aa24a421
+[11-13 13:56:40:972]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:52:17:640]
+User: jmuser00007
+Action: write
+Loop: 0
+File: testdata\test-file-7-sample.doc
+Number of record: 1
+Status: upload success
+NodeRef: workspace://SpacesStore/9b488715-ca15-48c1-b467-cd09e9ef7047
+[11-13 13:56:48:581]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:55:45:597]
+User: jmuser00003
+Action: write
+Loop: 1
+File: testdata\test-file-2-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/b75bdfd1-8590-4cc9-823a-415e7c32968f
+[11-13 13:59:37:673]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:55:51:685]
+User: jmuser00004
+Action: write
+Loop: 1
+File: testdata\test-file-2-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/c30eb931-2b46-493d-8139-db5a58981134
+[11-13 13:59:43:433]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:09:119]
+User: jmuser00001
+Action: write
+Loop: 1
+File: testdata\test-file-5-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/1f78aa8c-73ae-4fe8-af72-27fc985db2a6
+[11-13 14:00:00:731]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:15:409]
+User: jmuser00008
+Action: write
+Loop: 1
+File: testdata\test-file-2-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/507aaddf-45ae-4031-96ea-23bdc1226902
+[11-13 14:00:07:210]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:55:40:531]
+User: jmuser00002
+Action: write
+Loop: 1
+File: testdata\test-file-5-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/7516d15b-315e-4f8a-bb21-8e392e9227ad
+[11-13 14:00:07:992]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:21:742]
+User: jmuser00009
+Action: write
+Loop: 1
+File: testdata\test-file-7-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/6e2cb770-1f73-443b-bd52-2bf688e25eb8
+[11-13 14:00:13:775]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:40:581]
+User: jmuser00005
+Action: write
+Loop: 1
+File: testdata\test-file-8-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/fe055aa5-ce10-4b99-b1a4-598eaf93938d
+[11-13 14:00:32:389]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:40:986]
+User: jmuser00006
+Action: write
+Loop: 1
+File: testdata\test-file-2-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/dfcf16a2-9893-473c-8ae6-1fc2458ea27f
+[11-13 14:00:32:858]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:48:596]
+User: jmuser00007
+Action: write
+Loop: 1
+File: testdata\test-file-0-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/3fb65109-722e-4983-9092-93fd1a84a967
+[11-13 14:00:40:289]
+-------------------------------------------------
+-------------------------------------------------
+[11-13 13:56:27:821]
+User: jmuser00010
+Action: write
+Loop: 1
+File: testdata\test-file-5-sample.doc
+Number of record: 2
+Status: upload success
+NodeRef: workspace://SpacesStore/7a2b1ab1-9dec-4015-a48f-9f2f3d157135
+[11-13 14:01:03:704]
+-------------------------------------------------
+Tidying up ...    @ Wed Nov 13 14:12:16 GMT 2013 (1384351936002)
+... end of run
+-------------------------------------------------------------
+[jmeterTaskTimer: 20:37.967 sec]
+Overriding previous definition of property "jmeterTaskTimer"
+-------------------------------------------------------------

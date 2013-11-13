@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+
+<project name="ant-jmeter" default="all">
+	<description>
+	JMeter / JChav Alfresco Share performance testing suite.
+	Jmeter version 2.3.4 (serializer-*.jar, xalan-*.jar are required in ${jmeter.home}/lib directory).
+	</description>
+
+	<!-- =========================================================================================================================================== -->
+
+	<property name="basedir" value="."/>
+	
+	<echo>Loading properties from build.properties...</echo>
+
+	<property file="build.properties"/>
+	<!-- Temporary report directories -->
+	<property name="jtl.dir" value="${jmeter.jtl}"/>
+	<property name="html.dir" value="${jmeter.html}"/>
+	<property name="xml.dir" value="${jmeter.xml}"/>
+
+	<!-- Scripts directory -->
+	<property name="scripts.dir" value="${jmeter.scripts}"/>
+	<!-- Auxiliary libraries directory -->
+	<property name="aux.dir" value="${jmeter.aux}"/>
+	<!-- Report templates directory -->
+	<property name="templates.dir" value="${jmeter.templates}"/>
+	<!-- Test files directory -->
+	<property name="testdata.dir" value="${jmeter.testdata}"/>
+	<!-- Test utils directory -->
+	<property name="testutils.dir" value="${jmeter.testutils}"/>
+	<!-- Configuration files directory -->
+	<property name="configs.dir" value="${jmeter.configs}"/>
+
+	<!-- JMeter's JVM options -->
+	<property name="jvm.xmx" value="${jmeter.xmx}"/>
+	<property name="jvm.max.perm.size" value="${jmeter.max.perm.size}"/>
+	<property description="Produce a build ID. If using a continuous build process inherit the build.id from that." name="build.id" value="${alfresco.build.id}" />
+
+	
+	<property file="${configs.dir}/test.properties"/>
+
+	<echo>Loading properties from test.properties...</echo>
+
+	<!-- Test users count -->
+	<property name="users" value="${users_count}"/>
+	<!-- Test loops count -->
+	<property name="full_loops" value="${full_loops_count}"/>
+	<property name="read_only_loops" value="${read_only_loops_count}"/>
+
+	<!-- Should report include response data for failures? -->
+	<property name="show-data" value="y"/>
+	<property name="format" value="2.1"/>
+
+	<!-- =========================================================================================================================================== -->
+
+	<!-- Allow jar to be picked up locally -->
+
+	<!-- 
+	 | Use xalan copy from JMeter lib directory to ensure consistent processing with Java 1.4+ 
+	 +-->
+    <path id="xslt.classpath">
+       <fileset dir="${jmeter.lib}" includes="xalan*.jar"/>
+       <fileset dir="${jmeter.lib}" includes="serializer*.jar"/>
+    </path>
+
+	<path id="xml.classpath">
+		<fileset dir="${basedir}/lib" includes="xmltask*.jar"/>
+    </path>
+
+	<!-- =========================================================================================================================================== -->
+
+	<tstamp description="Produce a timestamp">
+		<format property="time" pattern="yyyyMMdd-HHmmss-SSS" locale="en"/>
+	</tstamp>
+
+	<!-- generated test-report name template -->
+	<property name="read-only-test-report" value="read-only-build${build.id}-users-${users}"/>
+	<property name="full-test-report" value="full-build${build.id}-users-${users}"/>
+
+	<!-- =========================================================================================================================================== -->
+
+	<!-- 
+	 | Check that the xalan libraries are present 
+	 +-->
+	<condition property="xalan.present">
+	  	<and>
+	  		<!-- No need to check all jars; just check a few -->
+	        <available classpathref="xslt.classpath" classname="org.apache.xalan.processor.TransformerFactoryImpl"/>
+	        <available classpathref="xslt.classpath" classname="org.apache.xml.serializer.ExtendedContentHandler"/>
+	  	</and>
+	</condition>
+
+	<!-- =========================================================================================================================================== -->
+		
+	<condition property="style_version" value="">
+		<equals arg1="${format}" arg2="2.0"/>
+	</condition>
+
+	<condition property="style_version" value="_21">
+		<equals arg1="${format}" arg2="2.1"/>
+	</condition>
+
+	<condition property="funcMode">
+		<equals arg1="${show-data}" arg2="y"/>
+	</condition>
+	
+	<condition property="funcMode" value="true">
+	  <not>
+		<equals arg1="${show-data}" arg2="y"/>
+	  </not>
+	</condition>
+
+	<!-- =========================================================================================================================================== -->
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+        <classpath>
+            <pathelement location="${basedir}/lib/ant-contrib.jar" />
+        </classpath>
+    </taskdef>
+
+	<taskdef 
+		name="xmltask"
+		classpathref="xml.classpath"
+		classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>
+
+	<!-- =========================================================================================================================================== -->
+	
+	<target name="_message_xalan" unless="xalan.present">
+	  	<echo>Cannot find all xalan and/or serialiser jars.</echo>
+		<echo>The XSLT formatting may not work correctly.</echo>
+		<echo>Check you have ${xalan.jar} and ${serializer.jar}.</echo>
+	</target>
+
+    <target name="setup-suite" depends="clean-suite" description="Create temporary directories, read build.properties.">
+		<mkdir dir="${jtl.dir}"/>
+		<mkdir dir="${html.dir}"/>
+		<mkdir dir="${xml.dir}"/>
+		<copy todir="${jmeter.home}/extras" overwrite="true" verbose="true">
+			<fileset dir="${templates.dir}">
+				<include name="*.xml"/>
+				<include name="*.xsl"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${jmeter.home}/lib" overwrite="true" verbose="true">
+			<fileset dir="${aux.dir}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+    </target>
+
+    <target name="clean-suite" description="Clean jmeter-suite (temp-files, report-dirs).">
+		<delete dir="${jtl.dir}"/>
+		<delete dir="${html.dir}"/>
+		<delete dir="${xml.dir}"/>
+
+		<delete verbose="true">
+			<fileset dir="${basedir}">
+				<include name="**/*.log"/>
+			</fileset>
+		</delete>
+    </target>
+
+
+	<target name="setup-users" depends="setup-users-report" description="Create and set up test users."/>
+
+	<target name="setup-sites" depends="setup-sites-report" description="Create test sites."/>
+
+	<target name="remove-sites" depends="remove-sites-report" description="Remove test sites."/>
+
+	<target name="read-only-test" depends="read-only-report" description="Run READ-ONLY scenario script."/>
+
+	<target name="full-test" depends="full-report" description="Run FULL scenario script."/>
+
+	<target name="run-tests" depends="read-only-test,full-test" description="Run base test scripts (relies on users and sites existing)."/>
+
+	<target name="all" depends="setup-suite,setup-users,setup-sites,run-tests" description="Clean, create report directories, setup test-users, run all scripts, generate reports."/>
+
+	<!-- === SETUP & TEARDOWN ======================================================================================================================= -->
+
+	<target name="setup-users-run" description="Create and setup users for test.">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${html.dir}/setup-test-users.html"/>
+		
+		<java jar="${jmeter.home}/bin/ApacheJMeter.jar" fork="true">
+			<jvmarg value="-Xms128M"/>
+			<jvmarg value="-Xmx512M"/>
+			<jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/>
+			<jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/>
+			<jvmarg value="-XX:PermSize=128M"/>
+			<jvmarg value="-XX:MaxPermSize=256M"/> 			
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/> 			
+			<jvmarg value="-XX:+CMSClassUnloadingEnabled"/> 			
+			<jvmarg value="-XX:+CMSPermGenSweepingEnabled"/> 			
+		
+			<arg line="-n -t ${scripts.dir}/create_test_users.jmx -l ${jtl.dir}/setup-test-users.jtl -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.bytes=true -Jjmeter.save.saveservice.time=true -Jjmeter.save.saveservice.thread_name=true -Jjmeter.save.saveservice.successful=true -Jfile_format.testlog=${format} -Jjmeter.save.saveservice.response_data.on_error=${funcMode} -Jjmeter.usersCount=${users}"/>
+		</java>
+	</target>
+
+	<target name="setup-users-report" depends="setup-users-run,_message_xalan" description="Create report for [setup-users-run].">
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${jtl.dir}/setup-test-users.jtl"
+		    out="${html.dir}/setup-test-users.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+	</target>
+
+	<!-- 
+	 | setup-test-sites
+	 +-->
+	<!-- setup-test-sites.jmx: setup users test sites -->
+	<target name="setup-sites-run" description="Create and setup users sites for test.">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${html.dir}/setup-test-sites.html"/>
+
+		<java jar="${jmeter.home}/bin/ApacheJMeter.jar" fork="true">
+			<jvmarg value="-Xms128M"/>
+			<jvmarg value="-Xmx512M"/>
+			<jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/>
+			<jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/>
+			<jvmarg value="-XX:PermSize=128M"/>
+			<jvmarg value="-XX:MaxPermSize=256M"/> 			
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/> 			
+			<jvmarg value="-XX:+CMSClassUnloadingEnabled"/> 			
+		
+			<arg line="-n -t ${scripts.dir}/create_test_sites.jmx -l ${jtl.dir}/setup-test-sites.jtl -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.bytes=true -Jjmeter.save.saveservice.time=true -Jjmeter.save.saveservice.thread_name=true -Jjmeter.save.saveservice.successful=true -Jfile_format.testlog=${format} -Jjmeter.save.saveservice.response_data.on_error=${funcMode} -Jjmeter.usersCount=${users}"/>
+		</java>
+	</target>
+
+	<target name="setup-sites-report" depends="setup-sites-run,_message_xalan" description="Create report for [setup-sites-run].">
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${jtl.dir}/setup-test-sites.jtl"
+		    out="${html.dir}/setup-test-sites.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+	</target>
+
+	<!-- 
+	 | remove-test-sites
+	 +-->
+	<!-- remove-test-sites.jmx: setup users test sites -->
+	<target name="remove-sites-run" description="Create and setup users sites for test.">
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${html.dir}/remove-test-sites.html"/>
+
+		<java jar="${jmeter.home}/bin/ApacheJMeter.jar" fork="true">
+			<jvmarg value="-Xms128M"/>
+			<jvmarg value="-Xmx512M"/>
+			<jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/>
+			<jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/>
+			<jvmarg value="-XX:PermSize=128M"/>
+			<jvmarg value="-XX:MaxPermSize=256M"/> 			
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/> 			
+			<jvmarg value="-XX:+CMSClassUnloadingEnabled"/> 			
+		
+			<arg line="-n -t ${scripts.dir}/delete_test_sites.jmx -l ${jtl.dir}/remove-test-sites.jtl -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.bytes=true -Jjmeter.save.saveservice.time=true -Jjmeter.save.saveservice.thread_name=true -Jjmeter.save.saveservice.successful=true -Jfile_format.testlog=${format} -Jjmeter.save.saveservice.response_data.on_error=${funcMode} -Jjmeter.usersCount=${users}"/>
+		</java>
+	</target>
+
+	<target name="remove-sites-report" depends="remove-sites-run,_message_xalan" description="Create report for [remove-sites-run].">
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${jtl.dir}/remove-test-sites.jtl"
+		    out="${html.dir}/remove-test-sites.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+	</target>
+
+	<!-- === READ-ONLY SCENARIO ===================================================================================================================== -->
+
+	<!-- 
+	 | read-only scenario
+	 +-->
+	<!-- read-only.jmx: execute read-only scenario -->
+	<target name="read-only-run" description="Read-only scenario.">
+
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${html.dir}/${read-only-test-report}.html"/>
+
+		<record name="${read-only-test-report}.log" action="start" append="yes" loglevel="verbose" emacsmode="true"/>
+
+		<echo>===============================================================================================================================</echo>
+		<echo>   TEST RUN : </echo>
+		<echo>   ${users} user(s)</echo>
+		<echo>   ${read_only_loops} loop(s)</echo>
+		<echo>===============================================================================================================================</echo>
+
+		<stopwatch name="jmeterTaskTimer" action="start"/>
+		
+		<java jar="${jmeter.home}/bin/ApacheJMeter.jar" fork="true">
+			<jvmarg value="-Xms128M"/>
+			<jvmarg value="${jvm.xmx}"/>
+			<jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/>
+			<jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/>
+			<jvmarg value="-XX:PermSize=128M"/>
+			<jvmarg value="-XX:MaxPermSize=${jvm.max.perm.size}"/> 			
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/> 			
+			<jvmarg value="-XX:+CMSClassUnloadingEnabled"/> 			
+		
+			<arg line="-n -t ${scripts.dir}/read-only.jmx -l ${jtl.dir}/${read-only-test-report}.jtl -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.bytes=true -Jfile_format.testlog=2.1 -Jjmeter.save.saveservice.response_data.on_error=true -Jjmeter.usersCount=${users} -Jjmeter.loopCount=${loops}"/>
+		</java>
+
+		<echo>-------------------------------------------------------------</echo>
+		<stopwatch name="jmeterTaskTimer" action="total"/>
+		<echo>-------------------------------------------------------------</echo>
+		
+		<record name="${read-only-test-report}.log" action="stop"/>
+
+		<echo>-------------------------------------------------------------------------------------------------------------------------------</echo>
+        <echo>TEST COMPLETED.</echo>
+        <echo>-------------------------------------------------------------------------------------------------------------------------------</echo>
+
+		<copy file="${jtl.dir}/${read-only-test-report}.jtl" tofile="${xml.dir}/${read-only-test-report}.xml" overwrite="true" verbose="true"/>
+
+		<!-- refine generated xml-report: remove nested samples -->
+		<antcall target="refine-read-only-xml"/>
+
+	</target>
+
+	<target name="read-only-report" depends="read-only-run,_message_xalan" description="Create report for [read-only-run].">
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${xml.dir}/${read-only-test-report}.xml"
+		    out="${html.dir}/${read-only-test-report}.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+	</target>
+
+	<!-- === FULL SCENARIO ========================================================================================================================== -->	
+	
+	<!-- 
+	 | full scenario
+	 +-->
+	<!-- full.jmx: execute full scenario -->
+	<target name="full-run" description="Full scenario.">
+
+		<echo>funcMode = ${funcMode}</echo>
+		<delete file="${html.dir}/${full-test-report}.html"/>
+
+		<record name="${full-test-report}.log" action="start" append="yes" loglevel="verbose" emacsmode="true"/>
+
+		<echo>===============================================================================================================================</echo>
+		<echo>   TEST RUN : </echo>
+		<echo>   ${users} user(s)</echo>
+		<echo>   ${full_loops} loop(s)</echo>
+		<echo>===============================================================================================================================</echo>
+
+		<stopwatch name="jmeterTaskTimer" action="start"/>
+
+		<java jar="${jmeter.home}/bin/ApacheJMeter.jar" fork="true">
+			<jvmarg value="-Xms128M"/>
+			<jvmarg value="${jvm.xmx}"/>
+			<jvmarg value="-Dsun.rmi.dgc.client.gcInterval=600000"/>
+			<jvmarg value="-Dsun.rmi.dgc.server.gcInterval=600000"/>
+			<jvmarg value="-XX:PermSize=128M"/>
+			<jvmarg value="-XX:MaxPermSize=${jvm.max.perm.size}"/> 			
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/> 			
+			<jvmarg value="-XX:+CMSClassUnloadingEnabled"/> 			
+
+			<arg line="-n -t ${scripts.dir}/full.jmx -l ${jtl.dir}/${full-test-report}.jtl -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.assertion_results=all -Jjmeter.save.saveservice.bytes=true -Jfile_format.testlog=2.1 -Jjmeter.save.saveservice.response_data.on_error=true -Jjmeter.save.saveservice.thread_counts=true"/>
+		</java>
+
+		<echo>-------------------------------------------------------------</echo>
+		<stopwatch name="jmeterTaskTimer" action="total"/>
+		<echo>-------------------------------------------------------------</echo>
+
+		<record name="${full-test-report}.log" action="stop"/>
+
+		<echo>-------------------------------------------------------------------------------------------------------------------------------</echo>
+        <echo>TEST COMPLETED.</echo>
+        <echo>-------------------------------------------------------------------------------------------------------------------------------</echo>
+
+		<copy file="${jtl.dir}/${full-test-report}.jtl" tofile="${xml.dir}/${full-test-report}.xml" overwrite="true" verbose="true"/>
+
+		<!-- refine generated xml-report: remove nested samples -->
+
+		<antcall target="refine-full-xml"/>
+
+	</target>
+
+	<target name="full-report" depends="full-run,_message_xalan" description="Create report for [full-run].">
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${xml.dir}/${full-test-report}_refined.xml"
+		    out="${html.dir}/${full-test-report}.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+
+		<xslt
+			classpathref="xslt.classpath"
+			force="true"
+		    in="${xml.dir}/${full-test-report}_only-success.xml"
+		    out="${html.dir}/${full-test-report}_only-success.html"
+		    style="${templates.dir}/jmeter-results-detail-report${style_version}.xsl">
+			<param name="showData" expression="${show-data}"/>
+		</xslt>
+		
+	</target>
+
+<!-- === REFINE XML-REPORTS ========================================================================================================================== -->
+
+	<target name="split-full-xml" description="Split generated XML-reports.">
+		<java jar="${testutils.dir}/xml-report-splitter.jar" fork="true">
+			<arg value="split"/>
+			<arg value="${xml.dir}"/>
+			<arg value="${xml.dir}/splitted"/>
+			<arg value="${full-test-report}.xml"/>
+			<arg value="8388608"/>
+		</java>
+	</target>
+
+	<target name="assembly-full-xml" description="Assembly generated XML-reports.">
+		<java jar="${testutils.dir}/xml-report-splitter.jar" fork="true">
+			<arg value="assembly"/>
+			<arg value="${xml.dir}/splitted"/>
+			<arg value="${xml.dir}"/>
+			<arg value="${full-test-report}_refined.xml"/>
+		</java>
+	</target>
+
+	<target name="assembly-full-xml-only-success" description="Assembly generated XML-reports.">
+		<java jar="${testutils.dir}/xml-report-splitter.jar" fork="true">
+			<arg value="assembly"/>
+			<arg value="${xml.dir}/splitted"/>
+			<arg value="${xml.dir}"/>
+			<arg value="${full-test-report}_only-success.xml"/>
+		</java>
+	</target>
+	
+	<target name="refine-full-xml" description="Refine generated XML-reports.">
+
+		<antcall target="split-full-xml"/>
+
+		<xmltask todir="${xml.dir}/splitted" outputter="default">
+			<fileset dir="${xml.dir}/splitted" includes="*.xml"/>
+			<remove path="//httpSample/httpSample"/>
+			<remove path="//httpSample/sample"/>
+			<remove path="//httpSample/responseData"/>
+			<remove path="//sample[@lb='read_test_properties']"/>
+			<remove path="//sample[@lb='generate_list_of_users']"/>
+			<remove path="//sample[@lb='clean_up_generated_files']"/>
+			<remove path="//sample[@lb='init-last-user-name']"/>
+			<remove path="//sample[@lb='clean_up_generated_files']"/>
+			<remove path="//sample[@lb='variable-service']"/>
+			<remove path="//sample[@lb='clean_up_generated_files']"/>
+			<remove path="//sample[@lb='TEST-PROGRESS-MESSAGE']"/>
+			<remove path="//sample[@lb='DEBUG']"/>
+		</xmltask>
+
+		<antcall target="assembly-full-xml"/>
+
+		<xmltask todir="${xml.dir}/splitted" outputter="default">
+			<fileset dir="${xml.dir}/splitted" includes="*.xml"/>
+			<remove path="//sample[@s='false']"/>
+			<remove path="//httpSample[@s='false']"/>
+		</xmltask>
+
+		<antcall target="assembly-full-xml-only-success"/>
+
+	<delete dir="${xml.dir}/splitted"/>
+
+	</target>
+	
+	<target name="split-read-only-xml" description="Split generated XML-reports.">
+		<java jar="${testutils.dir}/xml-report-splitter.jar" fork="true">
+			<arg value="split"/>
+			<arg value="${xml.dir}"/>
+			<arg value="${xml.dir}/splitted"/>
+			<arg value="${read-only-test-report}.xml"/>
+			<arg value="8192"/>
+		</java>
+	</target>
+
+	<target name="assembly-read-only-xml" description="Assembly generated XML-reports.">
+		<java jar="${testutils.dir}/xml-report-splitter.jar" fork="true">
+			<arg value="assembly"/>
+			<arg value="${xml.dir}/splitted"/>
+			<arg value="${xml.dir}"/>
+			<arg value="${read-only-test-report}.xml"/>
+		</java>
+	</target>
+
+	<target name="refine-read-only-xml" description="Refine generated XML-reports.">
+
+		<antcall target="split-read-only-xml"/>
+
+		<xmltask dest="${xml.dir}/${read-only-test-report}.xml" outputter="default">
+			<fileset dir="${xml.dir}" includes="${read-only-test-report}.xml"/>
+			<remove path="//httpSample/httpSample"/>
+			<remove path="//sample[@lb='read_test_properties']"/>
+			<remove path="//sample[@lb='generate_list_of_users']"/>
+			<remove path="//sample[@lb='clean_up_generated_files']"/>
+			<remove path="//sample[@lb='init-last-user-name']"/>
+			<remove path="//sample[@lb='variable-service']"/>
+			<remove path="//sample[@lb='TEST-PROGRESS-MESSAGE']"/>
+		</xmltask>
+
+		<antcall target="assembly-read-only-xml"/>
+
+		<delete dir="${xml.dir}/splitted"/>
+	</target>
+	
+</project>
